@@ -1,0 +1,12 @@
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
+
+.button-group {
+  margin-left: 85px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+}
