@@ -4,29 +4,25 @@ import { useState } from "react";
 
 const RadioButtons = () => {
   const [activeButton, setActiveButton] = useState("");
+  const fruits = [
+    { name: "Apple" },
+    { name: "Pear" },
+    { name: "Orange", disabled: true },
+  ];
 
   return (
     <div>
-      <Button
-        text="Apple"
-        className={`Default-button radio-button ${
-          activeButton === "Apple" && "radio-button-active"
-        }`}
-        onClick={() => setActiveButton("Apple")}
-      />
-      <Button
-        text="Pear"
-        className={`Default-button radio-button ${
-          activeButton === "Pear" && "radio-button-active"
-        }`}
-        onClick={() => setActiveButton("Pear")}
-      />
-      <Button
-        text="Orange"
-        className="Default-button radio-button"
-        disabled
-        onClick={() => setActiveButton("Pear")}
-      />
+      {fruits.map((fruit) => (
+        <Button
+          key={fruit.name}
+          text={fruit.name}
+          className={`Default-button radio-button ${
+            activeButton === fruit.name && "radio-button-active"
+          }`}
+          disabled={fruit.disabled}
+          onClick={() => setActiveButton(fruit.name)}
+        />
+      ))}
     </div>
   );
 };
