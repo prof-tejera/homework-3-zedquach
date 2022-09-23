@@ -1,0 +1,27 @@
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  gap: 0 10px;
+  max-width: 100vw;
+  min-width: 400px;
+}
+
+.input-group input {
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid rgb(196, 196, 196);
+}
+
+@media screen and (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+    gap: 5px 0;
+  }
+}
+
+.input-control {
+  padding: 10px;
+}

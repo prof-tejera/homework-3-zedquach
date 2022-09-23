@@ -1,11 +1,11 @@
-import "./Input.css";
+import "./Checkbox.css";
 
 const Input = (props) => {
   const { label, ...inputProps } = props;
   return (
-    <div className="input-group">
+    <div className="checkbox-group">
+      <input {...inputProps} type="checkbox" className="checkbox-control" />
       {label && <label htmlFor={props.id}>{label}</label>}
-      <input {...inputProps} className="input-control" />
     </div>
   );
 };
