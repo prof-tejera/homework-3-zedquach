@@ -24,21 +24,21 @@ const Pager = (props) => {
   const PageButtons = () => {
     if (itemsOnPager > props.maxPage - props.minPage + 1) {
       return generateRange(props.minPage, props.maxPage).map((page) => {
-        if (page >= props.minPage && page <= props.maxPage)
+        if (page >= props.minPage && page <= props.maxPage) {
           return (
             <Button
               key={page}
               text={page}
               className={`page-button page-button-hover ${
-                page == activePage && "page-button-active"
+                page === activePage && "page-button-active"
               }`}
               onClick={() => setActivePage(page)}
             />
           );
+        }
+        return <></>;
       });
     }
-
-    const dots = <Button text="..." className="page-button" />;
     let pages = generateRange(
       activePage - Math.round(props.itemShow / 2),
       activePage + Math.round(props.itemShow / 2)
@@ -68,17 +68,19 @@ const Pager = (props) => {
       pages.push(props.maxPage);
     }
     const buttons = pages.map((page) => {
-      if (page >= props.minPage && page <= props.maxPage)
+      if (page >= props.minPage && page <= props.maxPage) {
         return (
           <Button
             key={page}
             text={page}
             className={`page-button page-button-hover ${
-              page == activePage && "page-button-active"
+              page === activePage && "page-button-active"
             }`}
             onClick={() => setActivePage(page)}
           />
         );
+      }
+      return <></>;
     });
 
     if (shouldShowLeftDot) {
